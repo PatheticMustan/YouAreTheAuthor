@@ -2149,7 +2149,6 @@ MonoBehaviour:
   billsText: {fileID: 2110443392}
   charactersTypedText: {fileID: 723693309}
   timeLeft: 0
-  ugm: {fileID: 0}
   scm: {fileID: 1336520589}
   wms: {fileID: 847255297}
 --- !u!4 &1187810907

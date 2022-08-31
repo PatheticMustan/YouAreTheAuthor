@@ -38,7 +38,7 @@ public class GameManagerScript : MonoBehaviour {
     private bool playing;
 
     // Shorten references to Upgrade Manager Script
-    public UpgradeManagerScript ugm;
+    //public UpgradeManagerScript ugm;
     public SummaryManagerScript scm;
     public WordManagerScript wms;
 
@@ -104,7 +104,7 @@ public class GameManagerScript : MonoBehaviour {
                 charactersTypedText.text = "Characters typed: " + DataScript.charactersTyped;
                 timeGreenFlash = 0.0f;
                 // Award money.
-                DataScript.money += newWordText.text.Length * DataScript.moneyPerChar * ((bool)ugm.upgradeValues["moneyMultiplier"] ? 2 : 1);
+                DataScript.money += newWordText.text.Length * DataScript.moneyPerChar; // * ((bool)ugm.upgradeValues["moneyMultiplier"] ? 2 : 1);
                 // Display new cash amount.
                 moneyText.text = DataScript.money.ToString("c2");
                 // Update completed words.
@@ -139,7 +139,7 @@ public class GameManagerScript : MonoBehaviour {
         DataScript.currentDay += 1;
         wordsLeft = 100;
         // CHANGE THIS!!!
-        timeLeft = 60.0f + ((bool)ugm.upgradeValues["timeIncrease"] ? 30.0f : 0.0f);
+        timeLeft = 60.0f; // + ((bool)ugm.upgradeValues["timeIncrease"] ? 30.0f : 0.0f);
         // should modify bills to increase difficulty?
         DataScript.billsCost = 25.0f;
 
