@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class DataScript
-{
+public static class DataScript {
     public static bool initialized = false;
 
     // Progression.
@@ -14,7 +13,7 @@ public static class DataScript
     public static int wordsCompleted;
     public static int charactersTyped;
 
-    public static Upgrade[] upgradesInfo = new Upgrade[]{
+    public static Upgrade[] upgradesInfo = new Upgrade[] {
         new Upgrade {
             name = "Money Rain",
             description = "For the next round you get 1.5x money.",
@@ -40,18 +39,16 @@ public static class DataScript
 
 
 // custom types
-public class Upgrade
-{
-    public string name;
-    public string description;
-    public float cost;
+public class Upgrade {
+    public string name = "UPGRADE NAME";
+    public string description = "oh wow, look a new upgrade..! so cool";
+    public float cost = 999999;
     public float incrementPerPurchase;
     public string id;
     public bool stackable;
     public int value;
 
-    public override string ToString()
-    {
+    public override string ToString() {
         return
             name + ", " +
             description + ", " +
@@ -61,4 +58,9 @@ public class Upgrade
             stackable + ", " +
             value;
     }
+}
+
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/UpgradeSO", order = 1)]
+public class UpgradeSO : ScriptableObject {
+    public int test;
 }

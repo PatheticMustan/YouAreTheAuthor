@@ -6,8 +6,7 @@ using System.Text.RegularExpressions;
 using System.Linq;
 
 [System.Serializable]
-public class WordPack
-{
+public class WordPack {
     public string name;
     public string description;
     public string fileName;
@@ -16,8 +15,8 @@ public class WordPack
     public bool enabled;
 }
 
-public class WordManagerScript : MonoBehaviour
-{
+// used to cache wordpacks
+public class WordManagerScript : MonoBehaviour {
     // name, description, fileName, enabled
     public WordPack[] Wordlist;
     // key : words
@@ -27,19 +26,18 @@ public class WordManagerScript : MonoBehaviour
 
 
 
-    void Start() { LoadWordpacks(); }
-
-    // Update is called once per frame
+    void Start() {
+        LoadWordpacks();
+        DontDestroyOnLoad(gameObject);
+    }
     void Update() { }
 
 
-    void LoadWordpacks()
-    {
+    void LoadWordpacks() {
         // root path
         string wordpackContainerPath = "Assets/Resources/Wordpacks/";
 
-        foreach (WordPack wordpack in Wordlist)
-        {
+        foreach (WordPack wordpack in Wordlist) {
             string[] lines = System.IO.File.ReadAllLines(wordpackContainerPath + wordpack.fileName + ".txt");
 
             // Cleans up the entire wordlist so that it only contains spaces, and A-Z.
